@@ -23,6 +23,8 @@ jobs:
 
     - name: Build
       run: dotnet build --configuration Release labtest2
+    - name: Run Tests
+      run: dotnet test --configuration Release --no-build labtest2 --logger "console;verbosity=detailed"
 
     - name: Run Tests
       run: dotnet test --configuration Release --no-build labtest2
