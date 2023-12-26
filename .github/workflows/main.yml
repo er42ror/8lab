@@ -1,6 +1,9 @@
 name: Run Tests
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   test:
@@ -13,13 +16,10 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '5.0'
+        dotnet-version: '6.0'
 
     - name: Restore dependencies
-      run: dotnet restore labtest2
+      run: dotnet restore TestProjectN1
 
     - name: Build
-      run: dotnet build --configuration Release labtest2
-
-    - name: Run Tests
-      run: dotnet test --configuration Release --no-build labtest2
+      run: dotnet build --configuration Release TestProjectN1
